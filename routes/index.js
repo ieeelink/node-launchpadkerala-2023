@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var title = 'IEEE Job Fair 2022'
+var title = 'Launchpad Kerala'
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
