@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>{{title}}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/Icons/icon.svg">
+    <link rel="icon" type="image/svg" sizes="32x32" href="assets/Icons/icon.svg">
+    <link rel="icon" type="image/svg" sizes="16x16" href="assets/Icons/icon.svg">
+    <link rel="mask-icon" href="assets/Icons/icon.svg" color="#2a2919">
+    <link rel="shortcut icon" href="assets/Icons/icon.svg">
+
+    <meta name="description" content="One of the most prestigious event of IEEE Kerala Section that is determined to serve the goal of
+    creating opportunities for engineering students and graduates.">
+    <meta name="keywords"
+        content="IEEE Job Fair, IEEE Kerala Section, IEEE LINK, Job Fair 2022, IEEE LINK, IEEE Kerala Section, mulearn, Infopark, Job Fair 2022, Job fair Kochi, Job fair Info park, Info Park Kochi, Kerala job, kerala IT, startup mission, infopark, jobs in kerala, freshers jobs, it jobs, kerala jobs, 2022 graduates,jobs in kerala, Tata elxsi, technopark jobs, infopark jobs, infopark, gtech, kozhikode jobs, kochi jobs, jobs in kochi, freshers jobs, KTU, electronics fresher">
+    <meta name="Subject" content="">
+    <meta name="Language" content="English">
+    <meta name="Distribution" content="Global">
+    <meta name="Robots" content="All">
+    <meta name="Revisit-After" content="1 Days">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="IEEE Job Fair 2022">
+    <meta property="og:site_name" content="IEEE Job Fair 2022">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IEEE Job Fair 2022">
+    <meta property="og:site_name" content="IEEE Job Fair 2022">
+    <meta property="og:url" content="https://ieeejobfair.com/">
+    <meta property="og:description" content="One of the most prestigious event of IEEE Kerala Section that is determined to serve the goal of
+    creating opportunities for engineering students and graduates.">
+    <meta property="og:image" content="/assets/img/image_1.jpeg">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IEEE Job Fair 2022" />
+    <meta name="twitter:description" content="One of the most prestigious event of IEEE Kerala Section that is determined to serve the goal of
+    creating opportunities for engineering students and graduates." />
+    <meta name="twitter:url" content="https://ieeejobfair.com/" />
+    <meta name="twitter:image" content="/assets/img/image_2.jpeg" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    {{>header}}
+
+    {{#if home_page}}
+    {{>hero}}
+    {{/if}}
+
+    <main id="main" class=" {{#if home_page}} {{else}} inner_main_page {{/if}}">
+        {{#if home_page}}
+        {{else if error}}
+        {{else}}
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{page_head}}</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>{{page_nav_name}}</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+        {{/if}}
+
+        {{{body}}}
+    </main>
+
+
+    {{>footer}}
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/javascripts/main.js"></script>
+
+</body>
+
+</html>
