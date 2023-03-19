@@ -1,0 +1,33 @@
+$color_1: #151515;
+$color_2: #484848;
+$color_3: #fff;
+$border-color_1: $color1;
+$border-top-color_1: #eee;
+
+#register {
+    .registration-form {
+        // background-color: #484848;
+
+        input,
+        textarea {
+            border-radius: 0;
+            box-shadow: none;
+            font-size: 14px;
+            border-radius: 4px;
+            height: 2.7rem;
+        }
+
+        button {
+            background: $color2;
+            border: 0;
+            padding: 10px 24px;
+            color: #151515;
+            transition: 0.4s;
+            border-radius: 4px;
+
+            &:hover{
+                background: $color1;
+            }
+        }
+    }
+}
