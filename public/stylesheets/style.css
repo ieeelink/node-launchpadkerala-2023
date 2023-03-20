@@ -77,51 +77,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 /*--------------------------------------------------------------
-  # Preloader
-  --------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #040404;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 0px);
-  left: calc(50% - 30px);
-  border: 6px solid #FC862B;
-  border-top-color: #151515;
-  border-bottom-color: #151515;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/*--------------------------------------------------------------
   # Disable aos animation delay on mobile devices
   --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
@@ -129,6 +84,84 @@ html::-webkit-scrollbar-thumb {
     transition-delay: 0 !important;
   }
 }
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c0c0c;
+  z-index: -1;
+  mask-image: url(#Layer_2);
+}
+#preloader #loader {
+  display: block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  overflow: visible;
+  transition: all 1.5s ease;
+}
+#preloader #loader #launcher {
+  position: absolute;
+  overflow: visible;
+  transform: translate(0%, -16.5%);
+  transition: all 0.5s ease;
+}
+#preloader #loader #launcher .rocket,
+#preloader #loader #launcher .rectangle {
+  fill: #FC862B;
+  transition: all 0.5s ease;
+}
+#preloader #loader #launcher.launch {
+  opacity: 0;
+}
+#preloader #loader #launcher.launch .rocket {
+  transform: translateY(-50%);
+}
+#preloader #loader #launcher.launch .rectangle {
+  transform: translateY(50%);
+}
+#preloader #loader #circle {
+  position: absolute;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+#preloader #loader #circle .ring {
+  fill: #fff;
+  transform-origin: center;
+}
+#preloader #loader #circle.rotate {
+  transition: all 0.3s ease;
+  animation: rotate 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+#preloader #loader.rotate {
+  transform: rotate(45deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#body {
+  overflow: hidden;
+  height: 100vh;
+  clip-path: circle(100% at center);
+  transition: all 1s ease;
+}
+#body.mask {
+  clip-path: circle(0% at center);
+}
+
 /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
@@ -452,6 +485,25 @@ html::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 2000px rgba(39, 39, 39, 0.25);
   position: relative;
 }
+#hero #launchpad {
+  display: none;
+  transition: all 0.5s ease;
+}
+#hero #hero_text {
+  opacity: 0;
+  transition: all 1s ease;
+}
+#hero .wave {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  #hero .wave {
+    width: 90vw;
+  }
+}
 
 #hero:before {
   content: "";
@@ -484,10 +536,10 @@ html::-webkit-scrollbar-thumb {
 
 #hero h2 {
   color: rgba(255, 255, 255, 0.9);
-  margin: 10px 0 0 0;
+  margin: 2rem 0 0 0;
   font-size: 1.2rem;
   line-height: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 #hero .icon-box {
@@ -546,6 +598,321 @@ html::-webkit-scrollbar-thumb {
     line-height: 1.5rem;
   }
 }
+@keyframes wave {
+  0% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 36.67%, 2% 36.57%, 4% 36.27%, 6% 35.78%, 8% 35.13%, 10% 34.33%, 12% 33.41%, 14% 32.41%, 16% 31.36%, 18% 30.29%, 20% 29.25%, 22% 28.27%, 24% 27.39%, 26% 26.63%, 28% 26.03%, 30% 25.61%, 32% 25.38%, 34% 25.34%, 36% 25.51%, 38% 25.87%, 40% 26.42%, 42% 27.12%, 44% 27.96%, 46% 28.91%, 48% 29.94%, 50% 31%, 52% 32.06%, 54% 33.09%, 56% 34.04%, 58% 34.88%, 60% 35.58%, 62% 36.13%, 64% 36.49%, 66% 36.66%, 68% 36.62%, 70% 36.39%, 72% 35.97%, 74% 35.37%, 76% 34.61%, 78% 33.73%, 80% 32.75%, 82% 31.71%, 84% 30.64%, 86% 29.59%, 88% 28.59%, 90% 27.67%, 92% 26.87%, 94% 26.22%, 96% 25.73%, 98% 25.43%, 100% 25.33%);
+  }
+  20% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 32.75%, 2% 31.71%, 4% 30.64%, 6% 29.59%, 8% 28.59%, 10% 27.67%, 12% 26.87%, 14% 26.22%, 16% 25.73%, 18% 25.43%, 20% 25.33%, 22% 25.43%, 24% 25.73%, 26% 26.22%, 28% 26.87%, 30% 27.67%, 32% 28.59%, 34% 29.59%, 36% 30.64%, 38% 31.71%, 40% 32.75%, 42% 33.73%, 44% 34.61%, 46% 35.37%, 48% 35.97%, 50% 36.39%, 52% 36.62%, 54% 36.66%, 56% 36.49%, 58% 36.13%, 60% 35.58%, 62% 34.88%, 64% 34.04%, 66% 33.09%, 68% 32.06%, 70% 31%, 72% 29.94%, 74% 28.91%, 76% 27.96%, 78% 27.12%, 80% 26.42%, 82% 25.87%, 84% 25.51%, 86% 25.34%, 88% 25.38%, 90% 25.61%, 92% 26.03%, 94% 26.63%, 96% 27.39%, 98% 28.27%, 100% 29.25%);
+  }
+  40% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 26.42%, 2% 25.87%, 4% 25.51%, 6% 25.34%, 8% 25.38%, 10% 25.61%, 12% 26.03%, 14% 26.63%, 16% 27.39%, 18% 28.27%, 20% 29.25%, 22% 30.29%, 24% 31.36%, 26% 32.41%, 28% 33.41%, 30% 34.33%, 32% 35.13%, 34% 35.78%, 36% 36.27%, 38% 36.57%, 40% 36.67%, 42% 36.57%, 44% 36.27%, 46% 35.78%, 48% 35.13%, 50% 34.33%, 52% 33.41%, 54% 32.41%, 56% 31.36%, 58% 30.29%, 60% 29.25%, 62% 28.27%, 64% 27.39%, 66% 26.63%, 68% 26.03%, 70% 25.61%, 72% 25.38%, 74% 25.34%, 76% 25.51%, 78% 25.87%, 80% 26.42%, 82% 27.12%, 84% 27.96%, 86% 28.91%, 88% 29.94%, 90% 31%, 92% 32.06%, 94% 33.09%, 96% 34.04%, 98% 34.88%, 100% 35.58%);
+  }
+  50% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 25.33%, 2% 25.43%, 4% 25.73%, 6% 26.22%, 8% 26.87%, 10% 27.67%, 12% 28.59%, 14% 29.59%, 16% 30.64%, 18% 31.71%, 20% 32.75%, 22% 33.73%, 24% 34.61%, 26% 35.37%, 28% 35.97%, 30% 36.39%, 32% 36.62%, 34% 36.66%, 36% 36.49%, 38% 36.13%, 40% 35.58%, 42% 34.88%, 44% 34.04%, 46% 33.09%, 48% 32.06%, 50% 31%, 52% 29.94%, 54% 28.91%, 56% 27.96%, 58% 27.12%, 60% 26.42%, 62% 25.87%, 64% 25.51%, 66% 25.34%, 68% 25.38%, 70% 25.61%, 72% 26.03%, 74% 26.63%, 76% 27.39%, 78% 28.27%, 80% 29.25%, 82% 30.29%, 84% 31.36%, 86% 32.41%, 88% 33.41%, 90% 34.33%, 92% 35.13%, 94% 35.78%, 96% 36.27%, 98% 36.57%, 100% 36.67%);
+  }
+  60% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 26.42%, 2% 27.12%, 4% 27.96%, 6% 28.91%, 8% 29.94%, 10% 31%, 12% 32.06%, 14% 33.09%, 16% 34.04%, 18% 34.88%, 20% 35.58%, 22% 36.13%, 24% 36.49%, 26% 36.66%, 28% 36.62%, 30% 36.39%, 32% 35.97%, 34% 35.37%, 36% 34.61%, 38% 33.73%, 40% 32.75%, 42% 31.71%, 44% 30.64%, 46% 29.59%, 48% 28.59%, 50% 27.67%, 52% 26.87%, 54% 26.22%, 56% 25.73%, 58% 25.43%, 60% 25.33%, 62% 25.43%, 64% 25.73%, 66% 26.22%, 68% 26.87%, 70% 27.67%, 72% 28.59%, 74% 29.59%, 76% 30.64%, 78% 31.71%, 80% 32.75%, 82% 33.73%, 84% 34.61%, 86% 35.37%, 88% 35.97%, 90% 36.39%, 92% 36.62%, 94% 36.66%, 96% 36.49%, 98% 36.13%, 100% 35.58%);
+  }
+  80% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 32.75%, 2% 33.73%, 4% 34.61%, 6% 35.37%, 8% 35.97%, 10% 36.39%, 12% 36.62%, 14% 36.66%, 16% 36.49%, 18% 36.13%, 20% 35.58%, 22% 34.88%, 24% 34.04%, 26% 33.09%, 28% 32.06%, 30% 31%, 32% 29.94%, 34% 28.91%, 36% 27.96%, 38% 27.12%, 40% 26.42%, 42% 25.87%, 44% 25.51%, 46% 25.34%, 48% 25.38%, 50% 25.61%, 52% 26.03%, 54% 26.63%, 56% 27.39%, 58% 28.27%, 60% 29.25%, 62% 30.29%, 64% 31.36%, 66% 32.41%, 68% 33.41%, 70% 34.33%, 72% 35.13%, 74% 35.78%, 76% 36.27%, 78% 36.57%, 80% 36.67%, 82% 36.57%, 84% 36.27%, 86% 35.78%, 88% 35.13%, 90% 34.33%, 92% 33.41%, 94% 32.41%, 96% 31.36%, 98% 30.29%, 100% 29.25%);
+  }
+  100% {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 36.67%, 2% 36.57%, 4% 36.27%, 6% 35.78%, 8% 35.13%, 10% 34.33%, 12% 33.41%, 14% 32.41%, 16% 31.36%, 18% 30.29%, 20% 29.25%, 22% 28.27%, 24% 27.39%, 26% 26.63%, 28% 26.03%, 30% 25.61%, 32% 25.38%, 34% 25.34%, 36% 25.51%, 38% 25.87%, 40% 26.42%, 42% 27.12%, 44% 27.96%, 46% 28.91%, 48% 29.94%, 50% 31%, 52% 32.06%, 54% 33.09%, 56% 34.04%, 58% 34.88%, 60% 35.58%, 62% 36.13%, 64% 36.49%, 66% 36.66%, 68% 36.62%, 70% 36.39%, 72% 35.97%, 74% 35.37%, 76% 34.61%, 78% 33.73%, 80% 32.75%, 82% 31.71%, 84% 30.64%, 86% 29.59%, 88% 28.59%, 90% 27.67%, 92% 26.87%, 94% 26.22%, 96% 25.73%, 98% 25.43%, 100% 25.33%);
+  }
+}
+/***************************************************
+ * Generated by SVG Artista on 3/2/2023, 12:13:32 AM
+ * MIT license (https://opensource.org/licenses/MIT)
+ * W. https://svgartista.net
+ **************************************************/
+@-webkit-keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 678px;
+    stroke-dasharray: 678px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 678px;
+  }
+}
+@keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 678px;
+    stroke-dasharray: 678px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 678px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+@keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+.svg-elem-1 {
+  -webkit-animation: animate-svg-stroke-1 2.5s ease-in 0s both, animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+  animation: animate-svg-stroke-1 2.5s ease-in 0s both, animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 266px;
+    stroke-dasharray: 266px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 266px;
+  }
+}
+@keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 266px;
+    stroke-dasharray: 266px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 266px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+@keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+.svg-elem-2 {
+  -webkit-animation: animate-svg-stroke-2 2.5s ease-in 0.12s both, animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+  animation: animate-svg-stroke-2 2.5s ease-in 0.12s both, animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-3 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@keyframes animate-svg-stroke-3 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+@keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+.svg-elem-3 {
+  -webkit-animation: animate-svg-stroke-3 2.5s ease-in 0.24s both, animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+  animation: animate-svg-stroke-3 2.5s ease-in 0.24s both, animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-4 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@keyframes animate-svg-stroke-4 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+@keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+.svg-elem-4 {
+  -webkit-animation: animate-svg-stroke-4 2.5s ease-in 0.36s both, animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+  animation: animate-svg-stroke-4 2.5s ease-in 0.36s both, animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-5 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@keyframes animate-svg-stroke-5 {
+  0% {
+    stroke-dashoffset: 34px;
+    stroke-dasharray: 34px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 34px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+@keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+.svg-elem-5 {
+  -webkit-animation: animate-svg-stroke-5 2.5s ease-in 0.48s both, animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s both;
+  animation: animate-svg-stroke-5 2.5s ease-in 0.48s both, animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-6 {
+  0% {
+    stroke-dashoffset: 2664.318359375px;
+    stroke-dasharray: 2664.318359375px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2664.318359375px;
+  }
+}
+@keyframes animate-svg-stroke-6 {
+  0% {
+    stroke-dashoffset: 2664.318359375px;
+    stroke-dasharray: 2664.318359375px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2664.318359375px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+@keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(255, 255, 255);
+  }
+}
+.svg-elem-6 {
+  -webkit-animation: animate-svg-stroke-6 2.5s ease-in 0.6s both, animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+  animation: animate-svg-stroke-6 2.5s ease-in 0.6s both, animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-7 {
+  0% {
+    stroke-dashoffset: 619.2614135742px;
+    stroke-dasharray: 619.2614135742px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 619.2614135742px;
+  }
+}
+@keyframes animate-svg-stroke-7 {
+  0% {
+    stroke-dashoffset: 619.2614135742px;
+    stroke-dasharray: 619.2614135742px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 619.2614135742px;
+  }
+}
+@-webkit-keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+@keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: rgb(252, 134, 43);
+  }
+}
+.svg-elem-7 {
+  -webkit-animation: animate-svg-stroke-7 2.5s ease-in 0.72s both, animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4s both;
+  animation: animate-svg-stroke-7 2.5s ease-in 0.72s both, animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4s both;
+}
+
 /*--------------------------------------------------------------
   # Sections General
   --------------------------------------------------------------*/
@@ -587,6 +954,21 @@ section {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   color: #151515;
+}
+
+.coming-soon {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coming-soon h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  color: #151515;
+  margin-bottom: 20px;
 }
 
 /* Teamm */
@@ -739,7 +1121,7 @@ section {
   height: 40px;
 }
 #timeline .timeline hr {
-  height: 2px;
+  height: 2.5px;
   background-color: #FC862B;
   opacity: 1;
   margin: 0;
@@ -1089,31 +1471,91 @@ section {
   }
 }
 /*--------------------------------------------------------------
-  # Footer
-  --------------------------------------------------------------*/
-#footer {
-  margin-top: auto;
-  background: black;
-  padding: 0 0 30px 0;
-  color: #fff;
-  font-size: 14px;
+# Frequently Asked Questions
+--------------------------------------------------------------*/
+#faq {
+  background-color: #fdf8f4;
 }
 
-#footer .copyright {
-  text-align: center;
-  padding-top: 30px;
-}
-#footer .copyright span {
-  color: #FC862B;
+.faq .faq-list {
+  padding: 0 100px;
 }
 
-#footer .credits {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 13px;
-  color: #fff;
+.faq .faq-list ul {
+  padding: 0;
+  list-style: none;
 }
 
+.faq .faq-list li + li {
+  margin-top: 15px;
+}
+
+.faq .faq-list li {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.15);
+}
+
+.faq .faq-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 0 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.faq .faq-list .icon-help {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  left: 20px;
+  color: #ffa22b;
+}
+
+.faq .faq-list .icon-show,
+.faq .faq-list .icon-close {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.faq .faq-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.faq .faq-list .icon-show {
+  display: none;
+}
+
+.faq .faq-list a.collapsed {
+  color: #343a40;
+}
+
+.faq .faq-list a.collapsed:hover {
+  color: #ff862b;
+}
+
+.faq .faq-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq .faq-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .faq .faq-list {
+    padding: 0;
+  }
+}
 #updates {
   padding: 60px 0 30px 0;
   position: relative;
@@ -1267,88 +1709,27 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Frequently Asked Questions
---------------------------------------------------------------*/
-#faq {
-  background-color: #fdf8f4;
+  # Footer
+  --------------------------------------------------------------*/
+#footer {
+  margin-top: auto;
+  background: black;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
 }
 
-.faq .faq-list {
-  padding: 0 100px;
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+#footer .copyright span {
+  color: #FC862B;
 }
 
-.faq .faq-list ul {
-  padding: 0;
-  list-style: none;
-}
-
-.faq .faq-list li + li {
-  margin-top: 15px;
-}
-
-.faq .faq-list li {
-  padding: 20px;
-  background: #fff;
-  border-radius: 4px;
-  position: relative;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.15);
-}
-
-.faq .faq-list a {
-  display: block;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  padding: 0 30px;
-  outline: none;
-  cursor: pointer;
-}
-
-.faq .faq-list .icon-help {
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  left: 20px;
-  color: #ffa22b;
-}
-
-.faq .faq-list .icon-show,
-.faq .faq-list .icon-close {
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.faq .faq-list p {
-  margin-bottom: 0;
-  padding: 10px 0 0 0;
-}
-
-.faq .faq-list .icon-show {
-  display: none;
-}
-
-.faq .faq-list a.collapsed {
-  color: #343a40;
-}
-
-.faq .faq-list a.collapsed:hover {
-  color: #ff862b;
-}
-
-.faq .faq-list a.collapsed .icon-show {
-  display: inline-block;
-}
-
-.faq .faq-list a.collapsed .icon-close {
-  display: none;
-}
-
-@media (max-width: 1200px) {
-  .faq .faq-list {
-    padding: 0;
-  }
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
 }

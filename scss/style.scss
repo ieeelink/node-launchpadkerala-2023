@@ -385,6 +385,23 @@ section {
     color: $dark_color_1;
 }
 
+.coming-soon {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h3{
+        font-size: 2.5rem;
+        font-weight: 700;
+        // text-transform: uppercase;
+        font-family: $font-family_3;
+        color: $dark_color_1;
+        margin-bottom: 20px;
+    }
+}
+
 /* Teamm */
 .team {
     background: $bg_color1;
@@ -580,7 +597,7 @@ section {
 
     .timeline hr {
         // border-top: 3px solid $color1;
-        height: 2px;
+        height: 2.5px;
         background-color: $color1;
         opacity: 1;
         margin: 0;
