@@ -12,6 +12,7 @@
                     setTimeout(() => {
                         $("#body").removeClass("mask");
                         setTimeout(() => {
+                            $("#preloader").remove();
                             $("#body").css({ "height": "auto", });
                             $("#launchpad").css({ "display": "block", });
                             setTimeout(() => {
