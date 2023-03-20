@@ -83,55 +83,6 @@ html {
 }
 
 /*--------------------------------------------------------------
-  # Preloader
-  --------------------------------------------------------------*/
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    overflow: hidden;
-    background: #040404;
-}
-
-#preloader:before {
-    content: "";
-    position: fixed;
-    top: calc(50% - 0px);
-    left: calc(50% - 30px);
-    border: 6px solid $color1;
-    border-top-color: $dark_color_1;
-    border-bottom-color: $dark_color_1;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: animate-preloader 1s linear infinite;
-    animation: animate-preloader 1s linear infinite;
-}
-
-@-webkit-keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/*--------------------------------------------------------------
   # Disable aos animation delay on mobile devices
   --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
@@ -140,61 +91,9 @@ html {
     }
 }
 
-/*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
-#header {
-    transition: all 0.5s;
-    z-index: 997;
-    padding: 15px 0;
+@import './partials/preloader';
+@import './partials/header';
 
-    &.inner-page-header {
-        background-color: #050505;
-    }
-}
-
-#header.header-scrolled {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-#header.header-inner-pages {
-    background: rgba(0, 0, 0, 1);
-}
-
-#header .logo {
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    overflow: visible;
-}
-
-#header .logo a {
-    color: $white;
-}
-
-#header .logo a span {
-    color: $color1;
-}
-
-#header .logo img {
-    max-height: 40px;
-}
-
-@media (max-width: 992px) {
-    #header {
-        .logo {
-            font-size: 1.3rem;
-        }
-    }
-}
-
-/*--------------------------------------------------------------
-  #  Get Startet Button
-  --------------------------------------------------------------*/
 .get-started-btn {
     color: $white;
     border-radius: 4px;
@@ -440,114 +339,7 @@ html {
     display: block;
 }
 
-/*--------------------------------------------------------------
-  # Hero Section
-  --------------------------------------------------------------*/
-#hero {
-    width: 100%;
-    min-height: 100vh;
-    background: url("/assets/img/background.jpg") top center;
-    background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba($color: #000000, $alpha: 0.3);
-    position: relative;
-}
-
-#hero:before {
-    content: "";
-    background: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-#hero .container {
-    position: relative;
-    padding-top: 74px;
-    text-align: center;
-}
-
-#hero h1 {
-    margin: 0;
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 64px;
-    color: $white;
-    font-family: $font-family_1;
-}
-
-#hero h1 span {
-    color: $color1;
-}
-
-#hero h2 {
-    color: rgba(255, 255, 255, 0.9);
-    margin: 10px 0 0 0;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-}
-
-#hero .icon-box {
-    padding: 30px 20px;
-    transition: ease-in-out 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    height: 100%;
-    text-align: center;
-}
-
-#hero .icon-box i {
-    font-size: 32px;
-    line-height: 1;
-    color: $color1;
-}
-
-#hero .icon-box h3 {
-    font-weight: 700;
-    margin: 10px 0 0 0;
-    padding: 0;
-    line-height: 1;
-    font-size: 20px;
-    line-height: 26px;
-}
-
-#hero .icon-box h3 a {
-    color: $white;
-    transition: ease-in-out 0.3s;
-}
-
-#hero .icon-box h3 a:hover {
-    color: $color1;
-}
-
-#hero .icon-box:hover {
-    border-color: $color1;
-}
-
-@media (min-width: 1024px) {
-    #hero {
-        background-attachment: fixed;
-    }
-}
-
-@media (max-width: 768px) {
-    #hero {
-        min-height: 80vh;
-    }
-
-    #hero h1 {
-        font-size: 2.3rem;
-        line-height: 36px;
-    }
-
-    #hero h2 {
-        width: 90%;
-        margin-top: 1rem;
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-}
+@import './partials/hero';
 
 /*--------------------------------------------------------------
   # Sections General
@@ -607,10 +399,19 @@ section {
 
 .team img {
     width: 50%;
+    height: auto;
     filter: grayscale(100);
     transition: all 0.4s ease-in-out;
     display: inline-block;
-    padding: 10px 0;
+    padding: 1rem 0;
+
+    &.md {
+        width: 35%;
+    }
+
+    &.sm {
+        width: 30%;
+    }
 }
 
 .team img:hover {
@@ -620,14 +421,22 @@ section {
 
 @media (max-width: 768px) {
     .team img {
-        width: 40%;
+        width: 50%;
     }
 }
 
 @media (max-width: 575px) {
     .team img {
-        width: 30%;
-    }
+        width: 65%;
+
+        &.md {
+            width: 45%;
+        }
+
+        &.sm {
+            width: 40%;
+        }
+    }    
 }
 
 /*--------------------------------------------------------------
@@ -770,7 +579,7 @@ section {
 
     .timeline hr {
         // border-top: 3px solid $color1;
-        height: 3px;
+        height: 2px;
         background-color: $color1;
         opacity: 1;
         margin: 0;
@@ -898,7 +707,7 @@ section {
 .features .image {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    // background-size: cover;
     min-height: 400px;
 }
 
@@ -1145,37 +954,6 @@ section {
     }
 }
 
-/*--------------------------------------------------------------
-  # Footer
-  --------------------------------------------------------------*/
-#footer {
-    margin-top: auto;
-    background: black;
-    padding: 0 0 30px 0;
-    color: $white;
-    font-size: 14px;
-}
-
-#footer .copyright {
-    text-align: center;
-    padding-top: 30px;
-
-    span {
-        color: $color1;
-    }
-}
-
-#footer .credits {
-    padding-top: 10px;
-    text-align: center;
-    font-size: 13px;
-    color: $white;
-}
-
-// @import './register';
-@import './updates';
-@import './inner_pages';
-
 
 /*--------------------------------------------------------------
 # Frequently Asked Questions
@@ -1264,3 +1042,8 @@ section {
     }
 }
 
+
+// @import './register';
+@import './updates';
+@import './inner_pages';
+@import './partials/footer';
