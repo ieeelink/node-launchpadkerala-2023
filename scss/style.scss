@@ -1,29 +1,4 @@
-/**
-* Template Name: Gp - v4.7.0
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-$color1: #ffc451;
-$color2: #ffd584;
-$color3: #ffbb38;
-$color4: #ffde9e;
-$color5: #ffcd6b;
-
-$color1: #32b7ff;
-$color2: #62c4f9;
-$color3: #23a1e4;
-$color4: #84d2fc;
-$color5: #49afe6;
-
-$bg_color1: #f3f9fd;
-
-// $color1:#41DD8F;
-// $color2:#62c4f9;
-// $color3:#23a1e4;
-// $color4:#84d2fc;
-// $color5:#49afe6;
+@import './theme';
 
 /*--------------------------------------------------------------
 # General
@@ -32,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: "Open Sans", sans-serif;
+    font-family: $font-family_3;
     color: #444444;
 }
 
@@ -52,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif;
+    font-family: $font-family_2;
 }
 
 html {
@@ -90,12 +65,12 @@ html {
 
 .back-to-top i {
     font-size: 28px;
-    color: #151515;
+    color: $dark_color_1;
     line-height: 0;
 }
 
 .back-to-top:hover {
-    background: #151515;
+    background: $dark_color_1;
 }
 
 .back-to-top:hover i {
@@ -127,8 +102,8 @@ html {
     top: calc(50% - 0px);
     left: calc(50% - 30px);
     border: 6px solid $color1;
-    border-top-color: #151515;
-    border-bottom-color: #151515;
+    border-top-color: $dark_color_1;
+    border-bottom-color: $dark_color_1;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -198,7 +173,7 @@ html {
 }
 
 #header .logo a {
-    color: #fff;
+    color: $white;
 }
 
 #header .logo a span {
@@ -221,7 +196,7 @@ html {
   #  Get Startet Button
   --------------------------------------------------------------*/
 .get-started-btn {
-    color: #fff;
+    color: $white;
     border-radius: 4px;
     padding: 7px 25px 8px 25px;
     white-space: nowrap;
@@ -273,7 +248,7 @@ html {
     padding: 10px 0 10px 30px;
     font-size: 15px;
     font-weight: 600;
-    color: #fff;
+    color: $white;
     white-space: nowrap;
     transition: 0.3s;
 }
@@ -302,7 +277,7 @@ html {
     z-index: 99;
     opacity: 0;
     visibility: hidden;
-    background: #fff;
+    background: $white;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: 0.3s;
 }
@@ -315,7 +290,7 @@ html {
     padding: 10px 20px;
     font-size: 14px;
     text-transform: none;
-    color: #151515;
+    color: $dark_color_1;
     font-weight: 400;
 }
 
@@ -362,7 +337,7 @@ html {
   * Mobile Navigation 
   */
 .mobile-nav-toggle {
-    color: #fff;
+    color: $white;
     font-size: 28px;
     cursor: pointer;
     display: none;
@@ -406,7 +381,7 @@ html {
     bottom: 15px;
     left: 15px;
     padding: 10px 0;
-    background-color: #fff;
+    background-color: $white;
     overflow-y: auto;
     transition: 0.3s;
 }
@@ -415,13 +390,13 @@ html {
 .navbar-mobile a:focus {
     padding: 10px 20px;
     font-size: 15px;
-    color: #151515;
+    color: $dark_color_1;
 }
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-    color: #151515;
+    color: $dark_color_1;
     background-color: $color1;
 }
 
@@ -438,7 +413,7 @@ html {
     z-index: 99;
     opacity: 1;
     visibility: visible;
-    background: #fff;
+    background: $white;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
@@ -448,7 +423,7 @@ html {
 
 .navbar-mobile .dropdown ul a {
     padding: 10px 20px;
-    color: #151515;
+    color: $dark_color_1;
 }
 
 .navbar-mobile .dropdown ul a i {
@@ -498,8 +473,8 @@ html {
     font-size: 56px;
     font-weight: 700;
     line-height: 64px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
+    color: $white;
+    font-family: $font-family_1;
 }
 
 #hero h1 span {
@@ -538,7 +513,7 @@ html {
 }
 
 #hero .icon-box h3 a {
-    color: #fff;
+    color: $white;
     transition: ease-in-out 0.3s;
 }
 
@@ -595,7 +570,7 @@ section {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #aaaaaa;
-    font-family: "Poppins", sans-serif;
+    font-family: $font-family_1;
 }
 
 .section-title h2::after {
@@ -613,8 +588,8 @@ section {
     font-size: 36px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
-    color: #151515;
+    font-family: $font-family_1;
+    color: $dark_color_1;
 }
 
 /* Teamm */
@@ -662,7 +637,7 @@ section {
 .about .content h3 {
     font-weight: 700;
     font-size: 28px;
-    font-family: "Poppins", sans-serif;
+    font-family: $font-family_1;
 }
 
 .about .content ul {
@@ -694,11 +669,11 @@ section {
     position: relative;
 
     h5 {
-        // font-family: "Open Sans", sans-serif;
+        // font-family: $font-family_3;
         font-weight: 700;
 
         span {
-            font-family: "Open Sans", sans-serif;
+            font-family: $font-family_3;
             ;
             opacity: 0.5;
             font-weight: 700;
@@ -714,7 +689,7 @@ section {
         padding: 13px 20px;
         border-radius: 50%;
         background-color: $color1;
-        color: #fff;
+        color: $white;
         max-height: 50px;
         z-index: 2;
     }
@@ -795,7 +770,7 @@ section {
 
     .timeline hr {
         // border-top: 3px solid $color1;
-        height: 2px;
+        height: 3px;
         background-color: $color1;
         opacity: 1;
         margin: 0;
@@ -854,7 +829,7 @@ section {
     border-right: 1px solid #eceff0;
     border-bottom: 1px solid #eceff0;
     overflow: hidden;
-    background: #fff;
+    background: $white;
     height: 120px;
     padding: 40px;
 }
@@ -939,17 +914,17 @@ section {
 }
 
 .cta h3 {
-    color: #fff;
+    color: $white;
     font-size: 28px;
     font-weight: 700;
 }
 
 .cta p {
-    color: #fff;
+    color: $white;
 }
 
 .cta .cta-btn {
-    font-family: "Raleway", sans-serif;
+    font-family: $font-family_2;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 1px;
@@ -958,14 +933,14 @@ section {
     border-radius: 4px;
     transition: 0.5s;
     margin-top: 10px;
-    border: 2px solid #fff;
-    color: #fff;
+    border: 2px solid $white;
+    color: $white;
 }
 
 .cta .cta-btn:hover {
     background: $color1;
     border-color: $color1;
-    color: #151515;
+    color: $dark_color_1;
 }
 
 /*--------------------------------------------------------------
@@ -973,13 +948,13 @@ section {
   --------------------------------------------------------------*/
 .contact .info {
     width: 100%;
-    background: #fff;
+    background: $white;
 }
 
 .contact .info i {
     font-size: 20px;
     background: $color1;
-    color: #151515;
+    color: $dark_color_1;
     float: left;
     width: 44px;
     height: 44px;
@@ -995,7 +970,7 @@ section {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #151515;
+    color: $dark_color_1;
 }
 
 .contact .info p {
@@ -1012,7 +987,7 @@ section {
 
 .contact .php-email-form {
     width: 100%;
-    background: #fff;
+    background: $white;
 }
 
 .contact .php-email-form .form-group {
@@ -1021,7 +996,7 @@ section {
 
 .contact .php-email-form .error-message {
     display: none;
-    color: #fff;
+    color: $white;
     background: #ed3c0d;
     text-align: left;
     padding: 15px;
@@ -1034,7 +1009,7 @@ section {
 
 .contact .php-email-form .sent-message {
     display: none;
-    color: #fff;
+    color: $white;
     background: #18d26e;
     text-align: center;
     padding: 15px;
@@ -1043,7 +1018,7 @@ section {
 
 .contact .php-email-form .loading {
     display: none;
-    background: #fff;
+    background: $white;
     text-align: center;
     padding: 15px;
 }
@@ -1086,7 +1061,7 @@ section {
     background: $color1;
     border: 0;
     padding: 10px 24px;
-    color: #151515;
+    color: $dark_color_1;
     transition: 0.4s;
     border-radius: 4px;
 }
@@ -1177,7 +1152,7 @@ section {
     margin-top: auto;
     background: black;
     padding: 0 0 30px 0;
-    color: #fff;
+    color: $white;
     font-size: 14px;
 }
 
@@ -1194,7 +1169,7 @@ section {
     padding-top: 10px;
     text-align: center;
     font-size: 13px;
-    color: #fff;
+    color: $white;
 }
 
 // @import './register';
@@ -1224,7 +1199,7 @@ section {
 
 .faq .faq-list li {
     padding: 20px;
-    background: #fff;
+    background: $white;
     border-radius: 4px;
     position: relative;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.15);
@@ -1233,7 +1208,7 @@ section {
 .faq .faq-list a {
     display: block;
     position: relative;
-    font-family: "Poppins", sans-serif;
+    font-family: $font-family_1;
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
@@ -1247,7 +1222,7 @@ section {
     position: absolute;
     right: 0;
     left: 20px;
-    color: #87c1ea;
+    color: $color4;
 }
 
 .faq .faq-list .icon-show,
@@ -1272,7 +1247,7 @@ section {
 }
 
 .faq .faq-list a.collapsed:hover {
-    color: #2487ce;
+    color: $color5;
 }
 
 .faq .faq-list a.collapsed .icon-show {
