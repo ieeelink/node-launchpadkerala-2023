@@ -86,46 +86,82 @@ html::-webkit-scrollbar-thumb {
 }
 #preloader {
   position: fixed;
+  width: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c0c0c;
+  z-index: -1;
+  mask-image: url(#Layer_2);
+}
+#preloader #loader {
+  display: block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  overflow: visible;
+  transition: all 1.5s ease;
+}
+#preloader #loader #launcher {
+  position: absolute;
+  overflow: visible;
+  transform: translate(0%, -16.5%);
+  transition: all 0.5s ease;
+}
+#preloader #loader #launcher .rocket,
+#preloader #loader #launcher .rectangle {
+  fill: #FC862B;
+  transition: all 0.5s ease;
+}
+#preloader #loader #launcher.launch {
+  opacity: 0;
+}
+#preloader #loader #launcher.launch .rocket {
+  transform: translateY(-50%);
+}
+#preloader #loader #launcher.launch .rectangle {
+  transform: translateY(50%);
+}
+#preloader #loader #circle {
+  position: absolute;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+#preloader #loader #circle .ring {
+  fill: #fff;
+  transform-origin: center;
+}
+#preloader #loader #circle.rotate {
+  transition: all 0.3s ease;
+  animation: rotate 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+#preloader #loader.rotate {
+  transform: rotate(45deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#body {
   overflow: hidden;
-  background: #040404;
+  height: 100vh;
+  clip-path: circle(100% at center);
+  transition: all 1s ease;
+}
+#body.mask {
+  clip-path: circle(0% at center);
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 0px);
-  left: calc(50% - 30px);
-  border: 6px solid #FC862B;
-  border-top-color: #151515;
-  border-bottom-color: #151515;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
@@ -448,6 +484,14 @@ html::-webkit-scrollbar-thumb {
   background-size: cover;
   box-shadow: inset 0 0 0 2000px rgba(39, 39, 39, 0.25);
   position: relative;
+}
+#hero #launchpad {
+  display: none;
+  transition: all 0.5s ease;
+}
+#hero #hero_text {
+  opacity: 0;
+  transition: all 1s ease;
 }
 #hero .wave {
   height: 10rem;
@@ -1062,7 +1106,7 @@ section {
   height: 40px;
 }
 #timeline .timeline hr {
-  height: 2px;
+  height: 2.5px;
   background-color: #FC862B;
   opacity: 1;
   margin: 0;

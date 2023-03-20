@@ -1,15 +1,30 @@
-/**
-* Template Name: Gp - v4.7.0
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function () {
     "use strict";
 
-    /**
-     * Easy selector helper function
-     */
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            $("#circle").removeClass("rotate");
+            $("#launcher").removeClass("launch");
+            setTimeout(() => {
+                $("#loader").addClass("rotate");
+                setTimeout(() => {
+                    $("#launcher").addClass("launch");
+                    setTimeout(() => {
+                        $("#body").removeClass("mask");
+                        setTimeout(() => {
+                            $("#body").css({ "height": "auto", });
+                            $("#launchpad").css({ "display": "block", });
+                            setTimeout(() => {
+                                $("#hero_text").css({ "opacity": "1", });
+                            }, 1000)
+                        }, 500)
+                    }, 100)
+
+                }, 1500)
+            }, 1000)
+        }, 4000)
+    });
+
     const select = (el, all = false) => {
         el = el.trim()
         if (all) {
@@ -157,12 +172,6 @@
     /**
      * Preloader
      */
-    let preloader = select('#preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove()
-        });
-    }
 
     /**
      * Clients Slider

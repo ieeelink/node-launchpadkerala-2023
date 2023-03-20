@@ -9,6 +9,16 @@
   box-shadow: inset 0 0 0 2000px rgba($color: #272727, $alpha: 0.25);
   position: relative;
 
+  #launchpad{
+    display: none;
+    transition: all 0.5s ease;
+  }
+
+  #hero_text{
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
   .wave {
     height: 10rem;
     display: flex;

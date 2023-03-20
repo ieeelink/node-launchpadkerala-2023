@@ -67,42 +67,48 @@
 
     <!-- Template Main CSS File -->
     <link href="/stylesheets/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"
+        integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
 <body>
-    {{>header}}
+    {{>preloader}}
+    <div id="body" class="mask">
+        {{>header}}
 
-    {{#if home_page}}
-    {{>hero}}
-    {{/if}}
-
-    <main id="main" class=" {{#if home_page}} {{else}} inner_main_page {{/if}}">
         {{#if home_page}}
-        {{else if error}}
-        {{else}}
-        <section class="breadcrumbs">
-            <div class="container">
-
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2>{{page_head}}</h2>
-                    <ol>
-                        <li><a href="/">Home</a></li>
-                        <li>{{page_nav_name}}</li>
-                    </ol>
-                </div>
-
-            </div>
-        </section>
+        {{>hero}}
         {{/if}}
 
-        {{{body}}}
-    </main>
+        <main id="main" class=" {{#if home_page}} {{else}} inner_main_page {{/if}}">
+            {{#if home_page}}
+            {{else if error}}
+            {{else}}
+            <section class="breadcrumbs">
+                <div class="container">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>{{page_head}}</h2>
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li>{{page_nav_name}}</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </section>
+            {{/if}}
+
+            {{{body}}}
+        </main>
 
 
-    {{>footer}}
+        {{>footer}}
+    </div>
 
-    <div id="preloader"></div>
+    {{!-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
