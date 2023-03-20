@@ -158,6 +158,9 @@ html::-webkit-scrollbar-thumb {
   letter-spacing: 2px;
   text-transform: uppercase;
   overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #header .logo a {
@@ -168,8 +171,29 @@ html::-webkit-scrollbar-thumb {
   color: #FC862B;
 }
 
+#header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #header .logo img {
-  max-height: 40px;
+  width: auto;
+  height: 2.3rem;
+  transform: rotate(45deg);
+}
+#header .logo h1 {
+  font-size: 1rem;
+  margin: 0rem 0.5rem;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.1rem;
+}
+#header .logo h1 span {
+  color: #FC862B;
 }
 
 @media (max-width: 992px) {
@@ -177,9 +201,6 @@ html::-webkit-scrollbar-thumb {
     font-size: 1.3rem;
   }
 }
-/*--------------------------------------------------------------
-  #  Get Startet Button
-  --------------------------------------------------------------*/
 .get-started-btn {
   color: #fff;
   border-radius: 4px;
@@ -428,7 +449,7 @@ html::-webkit-scrollbar-thumb {
   min-height: 100vh;
   background: url("/assets/img/background.jpg") top center;
   background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 0 2000px rgba(39, 39, 39, 0.25);
   position: relative;
 }
 
@@ -583,10 +604,17 @@ section {
 
 .team img {
   width: 50%;
+  height: auto;
   filter: grayscale(100);
   transition: all 0.4s ease-in-out;
   display: inline-block;
-  padding: 10px 0;
+  padding: 1rem 0;
+}
+.team img.md {
+  width: 35%;
+}
+.team img.sm {
+  width: 30%;
 }
 
 .team img:hover {
@@ -596,12 +624,18 @@ section {
 
 @media (max-width: 768px) {
   .team img {
-    width: 40%;
+    width: 50%;
   }
 }
 @media (max-width: 575px) {
   .team img {
-    width: 30%;
+    width: 65%;
+  }
+  .team img.md {
+    width: 45%;
+  }
+  .team img.sm {
+    width: 40%;
   }
 }
 /*--------------------------------------------------------------
@@ -705,7 +739,7 @@ section {
   height: 40px;
 }
 #timeline .timeline hr {
-  height: 3px;
+  height: 2px;
   background-color: #FC862B;
   opacity: 1;
   margin: 0;
@@ -820,7 +854,6 @@ section {
 .features .image {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
   min-height: 400px;
 }
 

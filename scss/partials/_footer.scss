@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+  #footer {
+    margin-top: auto;
+    background: black;
+    padding: 0 0 30px 0;
+    color: $white;
+    font-size: 14px;
+}
+
+#footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+
+    span {
+        color: $color1;
+    }
+}
+
+#footer .credits {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: $white;
+}
