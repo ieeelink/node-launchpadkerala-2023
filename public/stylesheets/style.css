@@ -156,7 +156,7 @@ html::-webkit-scrollbar-thumb {
   overflow: hidden;
   height: 100vh;
   clip-path: circle(100% at center);
-  transition: all 1s ease;
+  transition: all 2s;
 }
 #body.mask {
   clip-path: circle(0% at center);
