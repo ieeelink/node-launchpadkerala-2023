@@ -56,7 +56,7 @@
     justify-content: center;
     align-items: center;
     background-color: #0c0c0c;
-    z-index: -1;
+    z-index: -10;
     mask-image: url(#Layer_2);;
 
     #loader {
@@ -132,6 +132,8 @@
     transition: all 2s;
 
     &.mask{
+        display: flex;
+        flex-direction: column;
         clip-path: circle(0% at center);
     }
 }
