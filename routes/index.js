@@ -16,7 +16,8 @@ router.get('/updates', function (req, res, next) {
     {
       title: `${title}`,
       page_head: 'News & Updates',
-      page_nav_name: 'Updates'
+      page_nav_name: 'Updates',
+      updates_page: true
     });
 });
 
