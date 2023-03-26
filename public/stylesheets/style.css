@@ -96,7 +96,7 @@ html::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   background-color: #0c0c0c;
-  z-index: -1;
+  z-index: -10;
   mask-image: url(#Layer_2);
 }
 #preloader #loader {
@@ -156,9 +156,11 @@ html::-webkit-scrollbar-thumb {
   overflow: hidden;
   height: 100vh;
   clip-path: circle(100% at center);
-  transition: all 1s ease;
+  transition: all 2s;
 }
 #body.mask {
+  display: flex;
+  flex-direction: column;
   clip-path: circle(0% at center);
 }
 
@@ -229,33 +231,6 @@ html::-webkit-scrollbar-thumb {
   color: #FC862B;
 }
 
-@media (max-width: 992px) {
-  #header .logo {
-    font-size: 1.3rem;
-  }
-}
-.get-started-btn {
-  color: #fff;
-  border-radius: 4px;
-  padding: 7px 25px 8px 25px;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
-  display: inline-block;
-  border: 2px solid #FC862B;
-}
-
-.get-started-btn:hover {
-  background: #ef7e28;
-  color: #020202;
-}
-
-@media (max-width: 992px) {
-  .get-started-btn {
-    padding: 7px 20px 8px 20px;
-    margin-right: 15px;
-  }
-}
 /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
@@ -474,6 +449,33 @@ html::-webkit-scrollbar-thumb {
   display: block;
 }
 
+@media (max-width: 992px) {
+  #header .logo {
+    font-size: 1.3rem;
+  }
+}
+.get-started-btn {
+  color: #fff;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  border: 2px solid #FC862B;
+}
+
+.get-started-btn:hover {
+  background: #ef7e28;
+  color: #020202;
+}
+
+@media (max-width: 992px) {
+  .get-started-btn {
+    padding: 7px 20px 8px 20px;
+    margin-right: 15px;
+  }
+}
 /*--------------------------------------------------------------
   # Hero Section
   --------------------------------------------------------------*/
@@ -1423,7 +1425,8 @@ section {
   }
 }
 .inner_main_page {
-  margin-top: 74px;
+  min-height: 80vh;
+  margin-top: 10vh;
 }
 
 /*--------------------------------------------------------------
