@@ -1,15 +1,15 @@
 (function () {
     "use strict";
 
-    // $("#circle").removeClass("rotate");
-    // $("#launcher").removeClass("launch");
-    // $("#loader").addClass("rotate");
-    // $("#launcher").addClass("launch");
-    // $("#body").removeClass("mask");
-    // $("#preloader").remove();
-    // $("#body").css({ "height": "auto", });
-    // $("#launchpad").css({ "display": "block", });
-    // $("#hero_text").css({ "opacity": "1", });
+    $("#circle").removeClass("rotate");
+    $("#launcher").removeClass("launch");
+    $("#loader").addClass("rotate");
+    $("#launcher").addClass("launch");
+    $("#body").removeClass("mask");
+    $("#preloader").remove();
+    $("#body").css({ "height": "auto", });
+    $("#launchpad").css({ "display": "block", });
+    $("#hero_text").css({ "opacity": "1", });
     window.addEventListener('load', () => {
         setTimeout(() => {
             $("#circle").removeClass("rotate");
