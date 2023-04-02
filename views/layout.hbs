@@ -83,9 +83,7 @@
         {{/if}}
 
         <main id="main" class=" {{#if home_page}} {{else}} inner_main_page {{/if}}">
-            {{#if home_page}}
-            {{else if error}}
-            {{else}}
+            {{#if breadcrumbs}}
             <section class="breadcrumbs">
                 <div class="container">
 
@@ -99,6 +97,7 @@
 
                 </div>
             </section>
+            {{else}}
             {{/if}}
 
             {{{body}}}
