@@ -42,6 +42,15 @@
                 }
             }
 
+            .ul{
+                margin: 1rem 0rem;
+                li{
+                    margin-left: 1rem;
+                    list-style: disc;
+                    padding: 0;
+                }
+            }
+
             .card-title {
                 font-weight: 700;
                 text-align: center;

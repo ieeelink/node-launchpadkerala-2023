@@ -58,6 +58,15 @@ router.get('/mocktest', function (req, res, next) {
     });
 });
 
+router.get('/privacy-policy', function (req, res, next) {
+  res.render('pages/privacy_policy',
+    {
+      title: `User Pricay Policy | ${title}`,
+      page_head: 'User Pricay Policy',
+      page_nav_name: 'pricay policy'
+    });
+});
+
 // router.get('/final-test', function (req, res, next) {
 //   res.render('pages/finaltest',
 //     {
