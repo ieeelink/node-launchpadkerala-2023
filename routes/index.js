@@ -49,14 +49,14 @@ router.get('/registration', function (req, res, next) {
 //     });
 // });
 
-// router.get('/mocktest', function (req, res, next) {
-//   res.render('pages/mocktest',
-//     {
-//       title: 'Mock Test | ${title}`,
-//       page_head: 'Mock Test',
-//       page_nav_name: 'mock test'
-//     });
-// });
+router.get('/mocktest', function (req, res, next) {
+  res.render('pages/mocktest',
+    {
+      title: `Mock Test | ${title}`,
+      page_head: 'Mock Test',
+      page_nav_name: 'mock test'
+    });
+});
 
 // router.get('/final-test', function (req, res, next) {
 //   res.render('pages/finaltest',
