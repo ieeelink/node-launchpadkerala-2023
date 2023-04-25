@@ -68,7 +68,7 @@ router.get('/privacy-policy', function (req, res, next) {
 });
 
 router.get('/final-test', function (req, res, next) {
-  res.render('pages/finaltest',
+  res.render('pages/onlinetest',
     {
       title: `Online Test | ${title}`,
       page_head: 'Online Test',
@@ -77,7 +77,7 @@ router.get('/final-test', function (req, res, next) {
 });
 
 router.get('/finaltest', function (req, res, next) {
-  res.render('pages/finaltest',
+  res.render('pages/onlinetest',
     {
       title: `Online Test | ${title}`,
       page_head: 'Online Test',
@@ -86,7 +86,7 @@ router.get('/finaltest', function (req, res, next) {
 });
 
 router.get('/online-test', function (req, res, next) {
-  res.render('pages/finaltest',
+  res.render('pages/onlinetest',
     {
       title: `Online Test | ${title}`,
       page_head: 'Online Test',
