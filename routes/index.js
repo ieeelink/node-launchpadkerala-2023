@@ -67,22 +67,31 @@ router.get('/privacy-policy', function (req, res, next) {
     });
 });
 
-// router.get('/final-test', function (req, res, next) {
-//   res.render('pages/finaltest',
-//     {
-//       title: 'Online Test | ${title}`,
-//       page_head: 'Online Test',
-//       page_nav_name: 'online-test'
-//     });
-// });
+router.get('/final-test', function (req, res, next) {
+  res.render('pages/finaltest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
 
-// router.get('/online-test', function (req, res, next) {
-//   res.render('pages/finaltest',
-//     {
-//       title: 'Online Test | ${title}`,
-//       page_head: 'Online Test',
-//       page_nav_name: 'online-test'
-//     });
-// });
+router.get('/finaltest', function (req, res, next) {
+  res.render('pages/finaltest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
+
+router.get('/online-test', function (req, res, next) {
+  res.render('pages/finaltest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
 
 module.exports = router;
