@@ -49,31 +49,49 @@ router.get('/registration', function (req, res, next) {
 //     });
 // });
 
-// router.get('/mocktest', function (req, res, next) {
-//   res.render('pages/mocktest',
-//     {
-//       title: 'Mock Test | ${title}`,
-//       page_head: 'Mock Test',
-//       page_nav_name: 'mock test'
-//     });
-// });
+router.get('/mocktest', function (req, res, next) {
+  res.render('pages/mocktest',
+    {
+      title: `Mock Test | ${title}`,
+      page_head: 'Mock Test',
+      page_nav_name: 'mock test'
+    });
+});
 
-// router.get('/final-test', function (req, res, next) {
-//   res.render('pages/finaltest',
-//     {
-//       title: 'Online Test | ${title}`,
-//       page_head: 'Online Test',
-//       page_nav_name: 'online-test'
-//     });
-// });
+router.get('/privacy-policy', function (req, res, next) {
+  res.render('pages/privacy_policy',
+    {
+      title: `User Pricay Policy | ${title}`,
+      page_head: 'User Pricay Policy',
+      page_nav_name: 'pricay policy'
+    });
+});
 
-// router.get('/online-test', function (req, res, next) {
-//   res.render('pages/finaltest',
-//     {
-//       title: 'Online Test | ${title}`,
-//       page_head: 'Online Test',
-//       page_nav_name: 'online-test'
-//     });
-// });
+router.get('/final-test', function (req, res, next) {
+  res.render('pages/onlinetest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
+
+router.get('/finaltest', function (req, res, next) {
+  res.render('pages/onlinetest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
+
+router.get('/online-test', function (req, res, next) {
+  res.render('pages/onlinetest',
+    {
+      title: `Online Test | ${title}`,
+      page_head: 'Online Test',
+      page_nav_name: 'online-test'
+    });
+});
 
 module.exports = router;
