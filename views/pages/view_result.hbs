@@ -1,0 +1,70 @@
+<section id="inner_page_section" class="inner_page_section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h3>Basic Details:</h3>
+                        <table class="table mb-4">
+                            <tbody>
+                                <tr>
+                                    <td>Launchpad ID</td>
+                                    <td>{{candidate.id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td>{{candidate.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">Registered Email ID</td>
+                                    <td style="word-wrap: break-word;">{{candidate.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>College/Institution</td>
+                                    <td>{{candidate.college}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Test Results:</h3>
+                        <table class="table mb-4">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rank:</strong></td>
+                                    <td>{{candidate.rank}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Score:</strong></td>
+                                    <td>{{candidate.test_results.total_score}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Percentage Score</strong></td>
+                                    <td>{{candidate.test_results.total_percentage}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="card-footer">
+                            <div class="button mt-4 pt-4 row">
+                                <div class="col-12">
+                                    <a href="/results/view">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg>
+                                        Check another Result
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

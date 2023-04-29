@@ -1617,6 +1617,89 @@ section {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
 }
 
+.forms {
+  background-color: #fff;
+  padding: 2rem;
+}
+.forms .error {
+  text-align: center;
+  color: #FC4F4F;
+}
+.forms .head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.forms .head h3 {
+  color: #151515;
+}
+.forms .head h3 span {
+  color: #ef7e28;
+  font-weight: 700;
+}
+.forms .head p {
+  color: rgba(21, 21, 21, 0.5);
+}
+.forms form {
+  margin: 0.5rem 0rem;
+}
+.forms form .form-group {
+  margin: 1rem 0rem;
+  margin-top: 1.5rem;
+  color: rgba(21, 21, 21, 0.9);
+}
+.forms form .form-group input {
+  height: 2.7rem;
+  border-radius: 0.1rem;
+  border: 1px solid rgba(21, 21, 21, 0.1);
+  color: #151515;
+  font-family: "Raleway", sans-serif;
+}
+.forms form .form-group input:active, .forms form .form-group input:focus {
+  box-shadow: none;
+  border: 1px solid #ef7e28;
+}
+.forms form .form-group input::placeholder {
+  color: rgba(21, 21, 21, 0.4);
+}
+.forms form .forgot {
+  text-align: right;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  color: rgba(21, 21, 21, 0.8);
+}
+.forms form .forgot a {
+  color: rgba(21, 21, 21, 0.5);
+}
+.forms form button {
+  width: 100%;
+  background-color: #ef7e28;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  margin: 1rem 0rem;
+  color: #DFF6FF;
+  transition: all 0.3s ease-in-out;
+}
+.forms form button:hover {
+  background-color: #151515;
+}
+.forms .footer {
+  text-align: center;
+  font-size: 0.8rem;
+}
+.forms .footer a {
+  font-weight: 600;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th, td {
+  word-wrap: break-word;
+}
+
 .inner_page_section {
   padding: 60px 0 30px 0;
   position: relative;
