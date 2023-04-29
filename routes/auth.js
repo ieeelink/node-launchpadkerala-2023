@@ -88,4 +88,12 @@ router.get('/logout', function (req, res, next) {
     });
 });
 
+router.get('/admin/logout', function (req, res, next) {
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        if (req.session) { req.session.destroy() }
+        res.redirect('/');
+    });
+});
+
 module.exports = router;
