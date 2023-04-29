@@ -82,6 +82,7 @@ router.get('/results', function (req, res, next) {
       title: `Results | ${app_name}`,
       page_head: 'Results',
       page_nav_name: 'Results',
+      reults_page: true
     });
 });
 
@@ -92,6 +93,7 @@ router.get('/results/view', function (req, res, next) {
       title: `Results | ${app_name}`,
       page_head: 'Results',
       page_nav_name: 'Results',
+      reults_page: true,
       message
     });
 });
@@ -106,6 +108,7 @@ router.post('/results/view', function (req, res, next) {
           title: `View Result |${app_name}`,
           page_head: 'Results',
           page_nav_name: 'Results',
+          reults_page: true,
           candidate
         });
     })
@@ -116,36 +119,36 @@ router.post('/results/view', function (req, res, next) {
     })
 });
 
-router.get('/results/view_result', function (req, res, next) {
-  let message = req.flash('message');
-  res.render('pages/view_result',
-    {
-      title: `Results | ${app_name}`,
-      page_head: 'Results',
-      page_nav_name: 'Results',
-      message
-    });
-});
+// router.get('/results/view_result', function (req, res, next) {
+//   let message = req.flash('message');
+//   res.render('pages/view_result',
+//     {
+//       title: `Results | ${app_name}`,
+//       page_head: 'Results',
+//       page_nav_name: 'Results',
+//       message
+//     });
+// });
 
 
-router.get('/test', (req, res, next) => {
-  let user = req.user;
-  res.render('test', {
-    title: `Test Page | ${app_name}`,
-    user
-  });
-});
+// router.get('/test', (req, res, next) => {
+//   let user = req.user;
+//   res.render('test', {
+//     title: `Test Page | ${app_name}`,
+//     user
+//   });
+// });
 
-router.post('/test', (req, res, next) => {
-  let user = req.user;
-  // console.log(req.body)
+// router.post('/test', (req, res, next) => {
+//   let user = req.user;
+//   // console.log(req.body)
 
-  res.send(
-    {
-      response: "acknowledged",
-      status: true
-    }
-  );
-});
+//   res.send(
+//     {
+//       response: "acknowledged",
+//       status: true
+//     }
+//   );
+// });
 
 module.exports = router;
