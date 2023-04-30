@@ -1,20 +1,64 @@
 var express = require('express');
 var router = express.Router();
+const controller = require('../controller/user');
 
-var title = 'Launchpad Kerala'
+var app_name = 'Launchpad Kerala'
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: `${title}`,
-    home_page: true
+
+/* GET home page. */
+router.get('/', (req, res, next) => {
+  let user = req.user
+  // console.log(req.user);
+  if (user && user.permissions.admin) {
+    res.redirect('/admin/')
+  } else {
+    res.render('index', {
+      title: app_name,
+      home_page: true
+    });
+  }
+});
+
+router.get('/contact', (req, res, next) => {
+  let user = req.user;
+  res.render('pages/contact', {
+    title: `Test Page | ${app_name}`,
+    user
   });
+});
+
+router.post('/contact', (req, res, next) => {
+  let user = req.user;
+  if (user) {
+    req.body.user = user.id;
+  } else {
+    req.body.user = null;
+  }
+  console.log(req.body)
+  controller.contact.message(req.body)
+    .then((response) => {
+      res.send(
+        {
+          response: "acknowledged",
+          status: true
+        }
+      );
+    })
+    .catch((error) => {
+      res.send(
+        {
+          error,
+          status: false
+        }
+      );
+    })
 });
 
 router.get('/updates', function (req, res, next) {
   res.render('updates',
     {
-      title: `${title}`,
+      title: `Updates | ${app_name}`,
       page_head: 'News & Updates',
       page_nav_name: 'Updates',
       breadcrumbs: true,
@@ -22,76 +66,58 @@ router.get('/updates', function (req, res, next) {
     });
 });
 
-router.get('/registration', function (req, res, next) {
-  res.render('pages/registration',
-    {
-      title: `${title}`,
-      page_head: 'Registration',
-      page_nav_name: 'Registration',
-    });
-});
-
-// router.get('/rank-list', function (req, res, next) {
-//   res.render('pages/ranklist',
-//     {
-//       title: `Rank List | ${title}`,
-//       page_head: 'Rank List of Online Test',
-//       page_nav_name: 'rank-list'
-//     });
-// });
-
-// router.get('/instructions/choosing-recruiters', function (req, res, next) {
-//   res.render('pages/instructions',
-//     {
-//       title: `Instructions | ${title}`,
-//       page_head: 'Instruction for choosing recruiters',
-//       page_nav_name: 'instructions'
-//     });
-// });
-
-router.get('/mocktest', function (req, res, next) {
-  res.render('pages/mocktest',
-    {
-      title: `Mock Test | ${title}`,
-      page_head: 'Mock Test',
-      page_nav_name: 'mock test'
-    });
-});
 
 router.get('/privacy-policy', function (req, res, next) {
   res.render('pages/privacy_policy',
     {
-      title: `User Pricay Policy | ${title}`,
+      title: `User Pricay Policy | ${app_name}`,
       page_head: 'User Pricay Policy',
       page_nav_name: 'pricay policy'
     });
 });
 
-router.get('/final-test', function (req, res, next) {
-  res.render('pages/onlinetest',
+router.get('/results', function (req, res, next) {
+  res.render('pages/results',
     {
-      title: `Online Test | ${title}`,
-      page_head: 'Online Test',
-      page_nav_name: 'online-test'
+      title: `Results | ${app_name}`,
+      page_head: 'Results',
+      page_nav_name: 'Results',
+      reults_page: true
     });
 });
 
-router.get('/finaltest', function (req, res, next) {
-  res.render('pages/onlinetest',
+router.get('/results/view', function (req, res, next) {
+  let message = req.flash('message');
+  res.render('pages/result',
     {
-      title: `Online Test | ${title}`,
-      page_head: 'Online Test',
-      page_nav_name: 'online-test'
+      title: `Results | ${app_name}`,
+      page_head: 'Results',
+      page_nav_name: 'Results',
+      reults_page: true,
+      no_preloader: true,
+      message,
     });
 });
 
-router.get('/online-test', function (req, res, next) {
-  res.render('pages/onlinetest',
-    {
-      title: `Online Test | ${title}`,
-      page_head: 'Online Test',
-      page_nav_name: 'online-test'
-    });
+router.post('/results/view', function (req, res, next) {
+  // console.log(req.body);
+  controller.candidate.viewResult(req.body)
+    .then((candidate) => {
+      // res.redirect('/results/view');
+      res.render('pages/view_result',
+        {
+          title: `View Result |${app_name}`,
+          page_head: 'Results',
+          page_nav_name: 'Results',
+          reults_page: true,
+          candidate
+        });
+    })
+    .catch((error) => {
+      // console.log(error);
+      req.flash('message', error);
+      res.redirect('/results/view');
+    })
 });
 
 module.exports = router;

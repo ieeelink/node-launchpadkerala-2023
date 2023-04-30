@@ -1,0 +1,107 @@
+<section id="inner_page_section" class="inner_page_section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="text-center" style="color: #21BF73;">
+                            <strong>
+                                Congratulations!<br>
+                                You are eligible to participate in the next round.
+                            </strong>
+                        </h5>
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Basic Details:</h3>
+                        <table class="table mb-4">
+                            <tbody>
+                                <tr>
+                                    <td>Launchpad ID</td>
+                                    <td>{{candidate.id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td>{{candidate.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">Registered Email ID</td>
+                                    <td style="word-wrap: break-word;">{{candidate.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>College/Institution</td>
+                                    <td>{{candidate.college}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Test Results:</h3>
+                        <table class="table mb-4">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rank:</strong></td>
+                                    <td>{{candidate.rank}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Score:</strong></td>
+                                    <td>{{candidate.test_results.total_score}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Percentage Score</strong></td>
+                                    <td>{{candidate.test_results.total_percentage}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-body">
+                        <p style="font-weight: 700;">Based on your test scores and qualifications, you have been
+                            selected to move
+                            on to the next round. In this round, we will use a combination of your preference, test
+                            score, rank, and
+                            other factors to assign you to a pool of companies.
+                        </p>
+                        <p>
+                            These companies will be conducting
+                            offline interviews on May 8th and May 13th, 2023. You will have the opportunity to attend
+                            these interviews and potentially secure a job offer. Good luck, and we look forward to
+                            seeing you at the next round!
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-10 col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+
+                    <div class="card-body">
+                        <p style="color: #FC862B; font-weight: 700">
+                            Please regularly check the update page on our website for all the updates
+                            and announcements regarding the further process. We strive to keep our participants informed
+                            and
+                            updated with any changes or important information.</p>
+                        <div class="card-footer">
+                            <div class="button mt-2 row">
+                                <div class="col-12">
+                                    <a href="/results/view">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                        View Results
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
