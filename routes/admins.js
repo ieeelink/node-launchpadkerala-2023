@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const admin = require('../controller/admin');
 const authenticate = require('../controller/authentication')
-const {access_controll, admin_vadlidation} = require('../middlewares/access_control')
+const { access_controll, admin_vadlidation } = require('../middlewares/access_control')
 
 const app_name = process.env.APP_NAME
 

@@ -22,11 +22,18 @@ const contact = {
 }
 
 const candidate = {
+
     viewResult: (data) => {
         return new Promise(async (resolve, reject) => {
-            // console.log(data)
-            // console.log(data.lpk_id)
 
+            // let data.lpk_id = data.data.lpk_id;
+            if(data.lpk_id.startsWith(" ")){
+                data.lpk_id = data.lpk_id.substring(1);
+            }
+            if(data.lpk_id.endsWith(" ")){
+                data.lpk_id = data.lpk_id.substring(0, 8);
+            }
+            
             if (String(data.lpk_id.length) == 8 && data.lpk_id.includes("LPK1")) {
                 db.get()
                     .collection(collections.CANDIDATES)
@@ -36,6 +43,12 @@ const candidate = {
                     .then((response) => {
                         // console.log(response)
                         if (response) {
+                            if(data.email.startsWith(" ")){
+                                data.email = data.email.substring(1);
+                            }
+                            if(data.email.endsWith(" ")){
+                                data.email = data.email.substring(0, 8);
+                            }
                             if(response.email == data.email) {
                                 resolve(response)
                             }else if(response.other_email.original == data.email){
@@ -56,19 +69,9 @@ const candidate = {
             } else {
                 reject("Please enter a valid Launchpad Kerala ID.")
             }
-
-            // console.log(id, email)
-            // db.get()
-            //     .collection(collections.CANDIDATES)
-            //     .findOne(data)
-            //     .then((response) => {
-            //         resolve(response)
-            //     }).catch((error) => {
-            //         reject(error)
-            //     })
-            // resolve("No such candidate")
         })
     }
+    
 }
 
 module.exports = {

@@ -108,6 +108,7 @@ const admins = {
             user.sname = inf.sname;
             user.email = inf.email;
             user.password = await bcrypt.hash(inf.password, 10);
+            user.events.joined = new Date();
             db.get()
                 .collection(collections.USER)
                 .insertOne(user)
@@ -123,16 +124,16 @@ const admins = {
         let user = {};
         if (data.role == 'admin') {
             let model = models.user.admin;
-            user.permission = model.permission;
+            user.permissions = model.permissions;
             user.fname = data.fname;
             user.sname = data.sname;
-            user.role = model.role
+            user.role = model.role;
         } else if (data.role == 'super_admin') {
             let model = models.user.super_admin;
-            user.permission = model.permission;
+            user.permissions = model.permissions;
             user.fname = data.fname;
             user.sname = data.sname;
-            user.role = model.role
+            user.role = model.role;
         } else {
             user = {}
         }
@@ -211,8 +212,28 @@ const message = {
 
 }
 
+const candidates = {
+
+    getAll: () => {
+        return new Promise((resolve, reject) => {
+            db.get()
+                .collection(collections.CANDIDATES)
+                .find()
+                .toArray()
+                .then((response) => {
+                    // console.log(response)
+                    resolve(response);
+                }).catch((error) => {
+                    reject(error);
+                })
+        })
+    },
+
+}
+
 module.exports = {
     account,
     admins,
-    message
+    message,
+    candidates
 }

@@ -1,10 +1,10 @@
-<section id="admins" class="section">
+<section id="candidates" class="section">
     <div class="container">
         <div class="row g-4 justify-content-center align-items-center">
             <div class="col-12 col-md-8 col-lg-7">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">All admins</h5>
+                        <h5 class="card-title">All Candidates</h5>
 
                         <table class="table table-hover">
                             <thead>
@@ -12,27 +12,20 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
-                                    {{#ifor user.permissions.messages.all user.permissions.messages.edit}}
+                                    <th scope="col">Phone</th>
                                     <th scope="col">Actions</th>
-                                    {{/ifor}}
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each admins}}
+                                {{#each candidates}}
                                 <tr id="row-{{this._id}}">
                                     <th scope="row">{{add @index 1}}</th>
-                                    <td>{{this.fname}} {{this.sname}}</td>
+                                    <td>{{this.name}}</td>
                                     <td>{{this.email}}</td>
-                                    <td>{{this.role}}</td>
+                                    <td>{{this.phone}}</td>
                                     {{#ifor user.permissions.messages.all user.permissions.messages.edit}}
                                     <td>
-                                        {{#ifor user.permissions.messages.all user.permissions.messages.remove}}
-                                        <button class="btn-ico red" onclick="removeAdmin(`{{this._id}}`)">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                        {{/ifor}}
-                                        <a href="/admin/admins/{{this._id}}" class="btn-ico blue">
+                                        <a href="/admin/candidates/{{this._id}}" class="btn-ico blue">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                     </td>

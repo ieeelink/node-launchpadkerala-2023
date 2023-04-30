@@ -13,22 +13,30 @@
                     <h5>Dashboard</h5>
                 </a>
             </li>
-            {{#if user.permissions.access.messages}}
+            {{#ifor user.permissions.messages.all user.permissions.messages.view}}
             <li>
                 <a href="/admin/messages/" {{#if messages_page}}class="active"{{/if}}>
                     <i class="ri-message-3-{{#if message_page}}fill{{else}}line{{/if}} sico"></i>
                     <h5>Messages</h5>
                 </a>
             </li>
-            {{/if}}
-            {{#if user.permissions.access.admins}}
+            {{/ifor}}
+            {{#ifor user.permissions.candidates.all user.permissions.candidates.view}}
+            <li>
+                <a href="/admin/candidates/" {{#if candidates_page}}class="active"{{/if}}>
+                    <i class="ri-team-{{#if message_page}}fill{{else}}line{{/if}} sico"></i>
+                    <h5>Canidates</h5>
+                </a>
+            </li>
+            {{/ifor}}
+            {{#ifor user.permissions.admins.all user.permissions.admins.view}}
             <li>
                 <a href="/admin/admins/" {{#if admins_page}}class="active"{{/if}}>
                     <i class="ri-shield-user-{{#if admins_page}}fill{{else}}line{{/if}} sico"></i>
                     <h5>Admins</h5>
                 </a>
             </li>
-            {{/if}}
+            {{/ifor}}
             <li>
                 <a href="/admin/account/" {{#if account_page}}class="active"{{/if}}>
                     <i class="ri-user-3-{{#if admin_page}}fill{{else}}line{{/if}} sico"></i>

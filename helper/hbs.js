@@ -1,4 +1,11 @@
 module.exports = {
+    ifor: (v1, v2, options) => {
+        if (v1 || v2) {
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
+    },
     compare: (val1, val2) => {
         return val1 == val2;
     },

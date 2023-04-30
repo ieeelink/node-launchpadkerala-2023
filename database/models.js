@@ -12,7 +12,9 @@ const user = {
         },
         permissions: {
             restricted: true,
-            self: ['view', 'update', 'delete']
+            self: {
+                all: true,
+            }
         },
         events: {
             joined: '',
@@ -34,17 +36,53 @@ const user = {
             image: '/assets/images/user/user.png',
             primary_address: {}
         },
-        access: ['admin', 'restricted'],
         permissions: {
             restricted: false,
             admin: true,
-            access:{
-                users: true,
-                messages: true
+            all: false,
+            self: {
+                all: false,
+                view: true,
+                edit: true,
+                update: true,
             },
-            self: ['view', 'update', 'delete'],
-            messages: ['view', 'edit', 'update'],
-            users: ['view']
+            messages: {
+                all: false,
+                view: true,
+            },
+            users: {
+                all: false,
+                view: true,
+                edit: true,
+                update: true,
+            },
+            candidates: {
+                all: false,
+                view: true,
+                edit: true,
+                update: true,
+            },
+            recuruiter: {
+                all: false,
+                view: true,
+                add: true,
+                edit: true,
+                update: true,
+            },
+            interviews: {
+                all: false,
+                view: true,
+                add: true,
+                edit: true,
+                update: true,
+            },
+            allotments: {
+                all: false,
+                view: true,
+                add: true,
+                edit: true,
+                update: true,
+            },
         },
         events: {
             joined: '',
@@ -69,14 +107,31 @@ const user = {
         permissions: {
             restricted: false,
             admin: true,
-            access:{
-                users: true,
-                messages: true,
-                admins: true
+            all: true,
+            self: {
+                all: true,
             },
-            users: ['all'],
-            messages: ['all'],
-            admins: ['all']     
+            messages: {
+                all: true,
+            },
+            users: {
+                all: true,
+            },
+            candidates: {
+                all: true,
+            },
+            recuruiter: {
+                all: true,
+            },
+            interviews: {
+                all: true,
+            },
+            allotments: {
+                all: true,
+            },
+            admins: {
+                all: true,
+            },
         },
         events: {
             joined: '',
