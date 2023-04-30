@@ -207,4 +207,66 @@ router.post('/account/update/password', function (req, res, next) {
         })
 });
 
+//candidates
+router.get('/candidates', access_controll('candidates', 'view'), function (req, res, next) {
+    let user = req.user
+    res.render('admin/candidates', {
+        title: app_name,
+        page_title: 'Candidates',
+        breadcrumbs: [
+            {
+                page_name: 'Candidates',
+                active: true,
+            }
+        ],
+        candidates_page: true,
+        user,
+    });
+});
+
+router.post('/candidates/search', access_controll('candidates', 'view'), function (req, res, next) {
+    let user = req.user
+    admin.candidates.search(req.body.text)
+        .then((candidates) => {
+            res.render('admin/candidates/view', {
+                title: app_name,
+                page_title: 'Candidates',
+                breadcrumbs: [
+                    {
+                        page_name: 'Candidates',
+                        active: true,
+                    }
+                ],
+                candidates_page: true,
+                candidates,
+                user,
+            });
+        })
+});
+
+router.get('/candidates/:id', access_controll('admins', 'edit'), function (req, res, next) {
+    let user = req.user
+    admin.candidates.get(req.params.id)
+        .then((candidate) => {
+            // console.log(response);
+            res.render('admin/candidates/view_one', {
+                title: app_name,
+                page_title: 'Candidates',
+                breadcrumbs: [
+                    {
+                        page_name: 'Candidates',
+                        page_link: '/candidates'
+                    },
+                    {
+                        page_name: 'View Candidate',
+                        active: true,
+                    }
+                ],
+                candidates_page: true,
+                user,
+                candidate
+            });
+        })
+});
+
 module.exports = router;

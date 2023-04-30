@@ -229,6 +229,61 @@ const candidates = {
         })
     },
 
+    search: (text) => {
+        return new Promise((resolve, reject) => {
+            // console.log(text)
+            try{
+                db.get()
+                .collection(collections.CANDIDATES)
+                .createIndex({ name: "text", id: "text", email: "text"})
+                .then((response) => {
+                    db.get()
+                        .collection(collections.CANDIDATES)
+                        .find(
+                            { $text: { $search: text } }
+                        )
+                        .toArray()
+                        .then((response) => {
+                            // console.log(response)
+                            resolve(response);
+                        }).catch((error) => {
+                            reject(error);
+                        })
+                }).catch((error) => {
+                    reject(error);
+                })
+            }catch{
+                reject("Tiemout");
+            }
+        })
+    },
+
+    get: (id) => {
+        return new Promise((resolve, reject) => {
+            db.get()
+                .collection(collections.CANDIDATES)
+                .findOne(
+                    {
+                        'id':id
+                    },
+                    {
+                        projection: {
+                            password: 0,
+                            permission: 0,
+                            events: 0,
+                            flags: 0
+                        }
+                    }
+                )
+                .then((response) => {
+                    // console.log(response)
+                    resolve(response);
+                }).catch((error) => {
+                    reject(error);
+                })
+        })
+    },
+
 }
 
 module.exports = {
