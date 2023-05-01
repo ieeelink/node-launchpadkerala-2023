@@ -100,7 +100,7 @@ router.get('/results/view', function (req, res, next) {
 });
 
 router.post('/results/view', function (req, res, next) {
-    controller.candidate.view(req.body)
+    controller.candidate.viewCanidate(req.body)
         .then((candidate) => {
             res.render('pages/view_result',
                 {
@@ -140,13 +140,79 @@ router.get('/allotment/apply', function (req, res, next) {
 });
 
 router.post('/allotment/apply', function (req, res, next) {
-    res.render('pages/allotment/apply',
-        {
-            title: `Allotment Application | ${app_name}`,
-            page_head: 'Allotment',
-            page_nav_name: 'Allotment',
-            allotment_page: true
-        });
+    controller.candidate.viewCanidate(req.body)
+        .then((candidate) => {
+            if (candidate.allotment.applied) {
+                req.session.candidate = null;
+                res.render('pages/allotment/success',
+                    {
+                        title: `Allotment Application | ${app_name}`,
+                        page_head: 'Allotment',
+                        page_nav_name: 'Allotment',
+                        allotment_page: true,
+                        success_message: 'You have already applied for allotment',
+                        candidate
+                    });
+            } else {
+                req.session.candidate = candidate;
+                console.log(req.session.candidate);
+                res.render('pages/allotment/application',
+                    {
+                        title: `Allotment Application | ${app_name}`,
+                        page_head: 'Allotment',
+                        page_nav_name: 'Allotment',
+                        allotment_page: true,
+                        candidate
+                    });
+            }
+        })
+        .catch((error) => {
+            res.redirect('/allotment/apply');
+        })
+});
+
+router.get('/allotment/application/complete/', function (req, res, next) {
+    let candidate = req.session.candidate;
+    let message = req.flash('message');
+    if (candidate) {
+        res.render('pages/allotment/application',
+            {
+                title: `Allotment Application | ${app_name}`,
+                page_head: 'Allotment',
+                page_nav_name: 'Allotment',
+                allotment_page: true,
+                candidate,
+                message
+            });
+    } else {
+        req.session.candidate = null;
+        req.flash('message', 'Please fill the application form');
+        res.redirect('/allotment/apply');
+    }
+});
+
+router.post('/allotment/application/submit/', function (req, res, next) {
+    let candidate = req.session.candidate;
+    if (candidate) {
+        controller.allotment.apply(candidate.id, req.body)
+            .then((candidate) => {
+                req.session.candidate = null;
+                res.render('pages/allotment/success',
+                    {
+                        title: `Allotment Application | ${app_name}`,
+                        page_head: 'Allotment',
+                        page_nav_name: 'Allotment',
+                        allotment_page: true,
+                        success_message: 'Your application has been submitted successfully',
+                        candidate
+                    });
+            })
+            .catch((error) => {
+                res.redirect('/allotment/application/complete/');
+            })
+    } else {
+        res.redirect('/allotment/application/complete/');
+    }
 });
 
 router.get('/allotment/recruiters', function (req, res, next) {

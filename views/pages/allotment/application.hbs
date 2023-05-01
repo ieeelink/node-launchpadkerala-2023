@@ -1,0 +1,209 @@
+<section id="inner_page_section" class="inner_page_section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="forms box-shadow">
+                    <div class="head">
+                        <h3>Recruiter Allotment<span> Application</span></h3>
+                    </div>
+                    {{#if message}}<p class="error">{{message}}</p>{{/if}}
+                    <form class="form">
+                        {{#with candidate}}
+                        <div class="row justify-content-center align-items-center">
+                            <h5>Basic Details</h5>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="lpk_id">Launchpad Kerala ID:</label>
+                                    <input type="lpk_id" class="form-control" name="lpk_id" id="lpk_id"
+                                        placeholder="{{id}}" value="{{id}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Rank in the test:</label>
+                                    <input type="text" class="form-control" name="rank" id="rank" placeholder="{{rank}}"
+                                        value="{{rank}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="{{name}}"
+                                        value="{{name}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Registered Email:</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="{{email}}" value="{{email}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone:</label>
+                                    <input type="text" class="form-control" name="phone" id="phone"
+                                        placeholder="{{phone}}" value="{{phone}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="college">College/Institution:</label>
+                                    <input type="text" class="form-control" name="college" id="college"
+                                        placeholder="{{college}}" value="{{college}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="degree">Degree:</label>
+                                    <input type="text" class="form-control" name="degree" id="degree"
+                                        placeholder="{{degree}}" value="{{degree}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="year_of_graduation">Year of Graduation:</label>
+                                    <input type="text" class="form-control" name="year_of_graduation"
+                                        id="year_of_graduation" placeholder="{{year_of_graduation}}"
+                                        value="{{year_of_graduation}}" required disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="branch">Branch:</label>
+                                    <input type="text" class="form-control" name="branch" id="branch"
+                                        placeholder="{{accademic.branch}}" value="{{accademic.branch}}" required
+                                        disabled>
+                                </div>
+                            </div>
+                        </div>
+                        {{/with}}
+                    </form>
+                    <form action="/allotment/application/submit" method="post" role="form" class="form">
+                        {{#with candidate}}
+                        <div class="row justify-content-center align-items-center">
+
+                            <h5 class="mt-4 mb-2">Recruiter Prefernce</h5>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="active_backlogs">First Preference:</label>
+                                    <select name="preference_1" id="preference_1" class="form-control form-select"
+                                        required>
+                                        <option disabled="disabled" selected="selected"> -- select an option --
+                                        </option>
+                                        <option value="A">Pool A - Trivandrum</option>
+                                        <option value="B">Pool B - Trivandrum</option>
+                                        <option value="C">Pool C - Kochi</option>
+                                        <option value="D">Pool D - Kochi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="active_backlogs">Second Preference:</label>
+                                    <select name="preference_2" id="preference_2" class="form-control form-select"
+                                        required>
+                                        <option disabled selected> -- select an option -- </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="active_backlogs">Third Preference:</label>
+                                    <select name="preference_3" id="preference_3" class="form-control form-select"
+                                        required>
+                                        <option disabled selected> -- select an option -- </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="active_backlogs">Fourth Preference:</label>
+                                    <select name="preference_4" id="preference_4" class="form-control form-select"
+                                        required>
+                                        <option disabled selected> -- select an option -- </option>
+                                    </select>
+                                </div>
+                            </div>
+                            {{!-- <div class="col-12 mt-4">
+                                <div class="form-group">
+                                    Since you are qualified in the top ranks of the test, you are eligible for attending
+                                    the recruitment drive at both the locations in Trivandrum and Kochi.
+                                </div>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <div class="form-group">
+                                    <label class="form-check-label" for="both_loactions">
+                                        Would you like to attend the recruitment drive at both the locations?
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="both_loactions"
+                                        id="both_loactions_1" value="1">
+                                    <label class="form-check-label" for="both_loactions">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="both_loactions"
+                                        id="both_loactions_0" value="0">
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                </div>
+                            </div> --}}
+                            <div class="text-center mt-4">
+                                <button type="submit">Submit Application</button>
+                            </div>
+                        </div>
+                        {{/with}}
+                    </form>
+                    <div class="footer">
+                        Before you aplly please read
+                        <strong>
+                            <a href="/allotment">Instructions</a>
+                        </strong>
+                        carefully
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    $("#preference_1").change(function () {
+        $('#preference_2').empty();
+        $('#preference_3').empty();
+        $('#preference_4').empty();
+        var $options = $("#preference_1 > option").clone();
+        $('#preference_2').append($options);
+        $(`#preference_2 option[value=${$(this).val()}]`).remove();
+        $('#preference_3').append($('<option>', {
+            value: '0',
+            text: ` -- select an option -- `
+        }));
+        $('#preferences_3 option[value=0]').attr('disabled', 'disabled').attr('selected', 'selected');
+        $('#preference_4').append($('<option>', {
+            value: '0',
+            text: ` -- select an option -- `
+        }));
+        $('#preferences_4 option[value=0]').attr('disabled', 'disabled').attr('selected', 'selected');
+    });
+    $("#preference_2").change(function () {
+        $('#preference_3').empty();
+        $('#preference_4').empty();
+        var $options = $("#preference_2 > option").clone();
+        $('#preference_3').append($options);
+        $(`#preference_3 option[value=${$(this).val()}]`).remove();
+        $('#preference_4').append($('<option>', {
+            value: '0',
+            text: ` -- select an option -- `
+        }));
+        $('#preferences_4 option[value=0]').attr('disabled', 'disabled').attr('selected', 'selected');
+    });
+    $("#preference_3").change(function () {
+        $('#preference_4').empty();
+        var $options = $("#preference_3 > option").clone();
+        $('#preference_4').append($options);
+        $(`#preference_4 option[value=${$(this).val()}]`).remove();
+    });
+</script>
