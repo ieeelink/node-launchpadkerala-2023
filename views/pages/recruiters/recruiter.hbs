@@ -1,0 +1,112 @@
+<section id="inner_page_section" class="inner_page_section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center">
+            {{#with recruiter}}
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="content">
+                            <h3>{{name}}</h3>
+                            <p>
+                                Website: <a style="font-weight: 600" href="{{website}}" target="_blank">{{website}}</a>
+                            </p>
+                            <p class="mt-2" style="font-weight: 700">
+                                location: {{office_locations}}
+                                <br>
+                                Mode: {{mode}}
+                            </p>
+                            <table class="table mb-4">
+                                <tbody>
+                                    <tr>
+                                        <td>No. Openings</td>
+                                        <td><strong>{{opening}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expected Onboarding</td>
+                                        <td><strong>{{expected_onboarding}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expected CTC</td>
+                                        <td><strong>{{expected_ctc}}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4>Qualifications: </h4>
+                            <table class="table mb-4">
+                                <tbody>
+                                    <tr>
+                                        <td>Qualification</td>
+                                        <td><strong>{{requirements.qualification}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Graduation Year</td>
+                                        <td><strong>{{requirements.graduation_year}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Specific Fields</td>
+                                        <td><strong>{{requirements.fields}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roles</td>
+                                        <td><strong>{{requirements.roles}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arriers Allowed</td>
+                                        <td><strong>
+                                                {{#if requirements.arriers}}
+                                                Yes
+                                                {{else}}
+                                                No
+                                                {{/if}}
+                                            </strong></td>
+                                    </tr>
+                                    {{#if requirements.arriers}}
+                                    <tr>
+                                        <td>Roles allowed for arriers</td>
+                                        <td><strong>{{requirements.arriers_allowed_roles}}</strong></td>
+                                    </tr>
+                                    {{/if}}
+                                    <tr>
+                                        <td>Technical Skills</td>
+                                        <td><strong>{{requirements.tech_skills}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Non Technical Skills</td>
+                                        <td><strong>{{requirements.non_tech_skills}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other Requirements</td>
+                                        <td><strong>{{requirements.others}}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {{#if message}}
+                            <h4>Message from the recruiter: </h4>
+
+                            <p style="font-weight: 700;">{{message}}</p>
+                            {{/if}}
+
+                        </div>
+                        <div class="card-footer mt-5">
+                            <div class="button mt-2 row">
+                                <div class="col-12 col-md-6">
+                                    <a href="/recruiters/pool/{{pool}}">
+                                        Back to Pool {{pool}}
+                                    </a>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <a href="/recruiters/">
+                                        View All Pools
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+        </div>
+
+    </div>
+</section>

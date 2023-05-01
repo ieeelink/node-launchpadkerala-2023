@@ -1643,8 +1643,7 @@ section {
   margin: 0.5rem 0rem;
 }
 .forms form .form-group {
-  margin: 1rem 0rem;
-  margin-top: 1.5rem;
+  margin: 0.5rem 0rem;
   color: rgba(21, 21, 21, 0.9);
 }
 .forms form .form-group input {
