@@ -23,7 +23,7 @@ const contact = {
 
 const candidate = {
 
-    viewCanidate: (data) => {
+    viewCandidate: (data) => {
         return new Promise(async (resolve, reject) => {
 
             // let data.lpk_id = data.data.lpk_id;
@@ -132,8 +132,44 @@ const allotment = {
     }
 }
 
+const recruiter ={
+    view: (id) => {
+        return new Promise(async (resolve, reject) => {
+
+            db.get()
+                .collection(collections.RECRUITERS)
+                .findOne({
+                    "id": id
+                })
+                .then((response) => {
+                    resolve(response)
+                }).catch((error) => {
+                    reject("Something Went wrong please try again later.")
+                })
+        })
+    },
+    getPool: (pool) => {
+        return new Promise(async (resolve, reject) => {
+                
+                db.get()
+                    .collection(collections.RECRUITERS)
+                    .find({
+                        "pool": pool.toUpperCase()
+                    })
+                    .toArray()
+                    .then((response) => {
+                        console.log(response)
+                        resolve(response)
+                    }).catch((error) => {
+                        reject("Something Went wrong please try again later.")
+                    })
+        })
+    }
+}
+
 module.exports = {
     contact,
     candidate,
-    allotment
+    allotment,
+    recruiter
 }

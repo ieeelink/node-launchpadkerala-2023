@@ -100,7 +100,7 @@ router.get('/results/view', function (req, res, next) {
 });
 
 router.post('/results/view', function (req, res, next) {
-    controller.candidate.viewCanidate(req.body)
+    controller.candidate.viewCandidate(req.body)
         .then((candidate) => {
             res.render('pages/view_result',
                 {
@@ -140,7 +140,7 @@ router.get('/allotment/apply', function (req, res, next) {
 });
 
 router.post('/allotment/apply', function (req, res, next) {
-    controller.candidate.viewCanidate(req.body)
+    controller.candidate.viewCandidate(req.body)
         .then((candidate) => {
             if (candidate.allotment.applied) {
                 req.session.candidate = null;
@@ -155,7 +155,7 @@ router.post('/allotment/apply', function (req, res, next) {
                     });
             } else {
                 req.session.candidate = candidate;
-                console.log(req.session.candidate);
+                // console.log(req.session.candidate);
                 res.render('pages/allotment/application',
                     {
                         title: `Allotment Application | ${app_name}`,
@@ -167,6 +167,7 @@ router.post('/allotment/apply', function (req, res, next) {
             }
         })
         .catch((error) => {
+            req.flash('message', error);
             res.redirect('/allotment/apply');
         })
 });
@@ -223,6 +224,52 @@ router.get('/allotment/recruiters', function (req, res, next) {
             page_nav_name: 'Allotment',
             allotment_page: true
         });
+});
+
+//recruiters
+router.get('/recruiters', function (req, res, next) {
+    res.render('pages/recruiters',
+        {
+            title: `Recruiters | ${app_name}`,
+            page_head: 'Recruiters',
+            page_nav_name: 'Recruiters',
+            recruiters_page: true,
+            breadcrumbs: true
+        });
+});
+
+router.get('/recruiters/:id', function (req, res, next) {
+    controller.recruiter.view(req.params.id)
+        .then((recruiter) => {
+            res.render('pages/recruiters/recruiter',
+                {
+                    title: `Recruiters | ${app_name}`,
+                    page_head: 'Recruiters',
+                    page_nav_name: 'Recruiters',
+                    recruiters_page: true,
+                    breadcrumbs: true,
+                    recruiter
+                });
+        })
+        .catch((error) => {
+            res.redirect('/recruiters');
+        })
+});
+
+router.get('/recruiters/pool/:pool', function (req, res, next) {
+    controller.recruiter.getPool(req.params.pool)
+    .then((pool) => {
+        res.render('pages/recruiters/pool',
+            {
+                title: `Recruiters | ${app_name}`,
+                page_head: 'Recruiters',
+                page_nav_name: 'Recruiters',
+                recruiters_page: true,
+                breadcrumbs: true,
+                pool_name: req.params.pool,
+                pool
+            });
+    })
 });
 
 module.exports = router;
